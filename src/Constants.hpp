@@ -37,6 +37,7 @@ namespace Constants {
     static const int encoder_ticks_per_rev = 1800;
     static const double wheelCircumference = 3.25 * pi;
     static const double distancePerTick = wheelCircumference/(encoder_ticks_per_rev*gearRatio);
+    /// @brief 
     static const int maxRPM = 100;
     static const int maxVolt = 127;
     static const int delayMove = 20;

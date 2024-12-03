@@ -128,6 +128,9 @@ void autonomous() {
 	mbc.clamp();
 	delay(1500);
 	it.spinUp();
+	
+	dt.turnAngle(90);
+	dt.turnAngle(90);
 	dt.turnAngle(90);
 	dt.moveHorizontal(22);
 	/*it.spinUp();

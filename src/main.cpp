@@ -142,7 +142,7 @@ void autonomous() {
 	delay(700);
 	it.stop();
 
-    //debugWait();
+    debugWait();
 	/*dt.tankDrive(127,127);//move forward to touch the ladder
 	delay(900);
 	dt.tankDrive(0,0);*/

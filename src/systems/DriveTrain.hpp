@@ -73,7 +73,7 @@ class DriveTrain {
     }
 
     //Function allows for the angled turned allowing for the drivetrain to turn left or right at any assigned angle
-    inline void turnAngle(double angle){
+    inline void turnAngle(double angle, signed char Direction){
         double distanceTravel = ((driveTrainWidth)*angle*pi)/(360.0*2.0);
         int ticks = distanceTravel/distancePerTick;
 
@@ -81,8 +81,8 @@ class DriveTrain {
         left_g.tare_position();
         right_g.tare_position();
         
-        left_g.move_relative(ticks, maxRPM);
-        right_g.move_relative(-(ticks), maxRPM);
+        left_g.move_relative(Direction * ticks, maxRPM);
+        right_g.move_relative(Direction * -(ticks), maxRPM);
 
         while (std::abs(left_g.get_position()) <= abs(ticks) && std::abs(right_g.get_position()) <= abs(ticks)) {
             delay(20); // Prevents busy waiting

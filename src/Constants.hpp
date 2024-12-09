@@ -25,11 +25,11 @@ namespace Constants {
     static constexpr float wheelDiameter = 3.25f; // Diameter of drive wheels
 
     //drive train auton values---------------
-    static const float driveTrainWidth = 14.25f;
+    static const float trackwidth = 14.18f;
     static const float kP = 0.5;
     static const float kI = 0.5;
     static const float kD  = 0.5;
-    static const float radius = driveTrainWidth; // can be found by measuring the width of the drive train and then dividing by two
+    static const float radius = trackwidth; // can be found by measuring the width of the drive train and then dividing by two
     
     //Darshaan's Code (597C)
     //static const double wheelDiameter = 3.25; // Diameter of drive wheels(inches)
@@ -43,6 +43,9 @@ namespace Constants {
     static const int delayMove = 20;
     static const int offsetInches = 11;
     //-------------------------------
+
+
+    static const double integral_threshold = 10;
 
     /*
     1800 ticks/rev with 36:1 gears (BLUE)

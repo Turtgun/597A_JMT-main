@@ -3,6 +3,7 @@
 #include "../Constants.hpp"
 #include "pros/motors.hpp"
 #include "pros/motor_group.hpp"
+#include "../autonomous/PIDController.hpp"
 #include <functional>
 
 using namespace Constants;
@@ -18,6 +19,9 @@ class DriveTrain {
 
     MotorGroup left_g  = MotorGroup({-fl_p, -ml_p, -bl_p});
     MotorGroup right_g = MotorGroup({fr_p, mr_p, br_p});
+
+    PIDController pidController = PIDController(kP, kI, kD, integral_threshold); 
+
 
     std::function<void(void)> teleMove;
     double average_vector(std::vector<double> input){
@@ -73,8 +77,39 @@ class DriveTrain {
     }
 
     //Function allows for the angled turned allowing for the drivetrain to turn left or right at any assigned angle
-    inline void turnAngle(double angle, signed char Direction){
-        double distanceTravel = ((driveTrainWidth)*angle*pi)/(360.0*2.0);
+    inline void turnAngle(double angle){
+        double direction = (angle < 0) ? 1: -1;
+        angle = std::abs(angle);
+
+        double distanceTravel = (trackwidth * angle * pi) / (360*2);
+        int ticks = (distanceTravel / distancePerTick);
+
+        //Reseting the position of the left and right group of motors
+        left_g.tare_position();
+        right_g.tare_position();
+
+        //Setting the target ticks
+        pidController.setTargetTicks(ticks);
+        
+        while (std::abs(left_g.get_position()) < ticks && std::abs(right_g.get_position()) < ticks) {
+            double controlRPM = direction * pidController.compute(std::abs(left_g.get_position()));
+
+            left_g.move_velocity(controlRPM);
+            right_g.move_velocity(-(controlRPM));
+
+            delay(20);
+        }
+
+        left_g.move_velocity(0);
+        right_g.move_velocity(0);
+        
+        pidController.reset();
+
+        delay(delayMove);
+    }
+
+    inline void turnAngleNew(double angle, signed char Direction){
+        double distanceTravel = ((trackwidth)*angle*pi)/(360.0*2.0);
         int ticks = distanceTravel/distancePerTick;
 
         //Reseting the position of the left and right group of motorsp

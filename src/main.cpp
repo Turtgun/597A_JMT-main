@@ -4,7 +4,7 @@
 #include "systems/DriveTrain.hpp"
 #include "systems/Intake.hpp"
 #include "systems/MobileClamp.hpp"
-
+//I love you raul
 using namespace pros;
 
 
@@ -123,16 +123,43 @@ void debugWait() {
 }
 
 void autonomous() {
-	dt.moveHorizontalNewTest(-25,70); 
+	/*dt.moveHorizontalNewTest(-24.5,70); 
 	mbc.clamp();
 	mbc.clamp();
 	delay(1500);
 	it.spinUp();
-	
-	dt.turnAngle(90);
-	dt.turnAngle(90);
 	dt.turnAngle(90);
 	dt.moveHorizontal(22);
+	delay(2500);
+	it.stop();
+	dt.turnAngle(-185);
+	dt.moveHorizontal(20);
+	//dt.moveHorizontal(-10);
+	*/
+//SKILLS AUTONOMOUS DO NOT TOUCH
+    dt.moveHorizontal(-5);
+	mbc.clamp();
+	dt.turnAngle(-90);
+	it.spinUp();
+	dt.moveHorizontal(12);
+	dt.moveHorizontal(-3);
+	dt.turnAngle(-20):
+	dt.moveHorizontal(5);
+	dt.turnAngle(20);
+	dt.moveHorizontal(8);
+	dt.moveHorizontal(-4);
+	dt.turnAngle(-90);
+	dt.moveHorizontal(12);
+	dt.turnAngle(90);
+	dt.moveHorizontal(12);
+	dt.moveHorizontal(-22);
+	dt.turnAngle(90);
+	dt.moveHorizontal(-22);
+	mbc.unClamp();
+	dt.moveHorizontal(-5);
+
+	
+
 	/*it.spinUp();
 	it.autonSpin(maxVolt, 4000); //duration is in milliseconds
 	dt.moveHorizontal(-20);

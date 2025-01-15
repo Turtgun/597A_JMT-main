@@ -15,7 +15,7 @@ namespace Constants {
     static constexpr unsigned char it2_p = 15; // Port of the Elevation mech
 
     static constexpr unsigned char hinge_p = 'A'; // Port for the Catapult's button
-
+    static constexpr unsigned char Wing_p = 'B'; // Port for the Wing
     static constexpr unsigned char threshold = 11; // Threshhold for controller to start moving the robot
     
     //static constexpr float trackwidth = 4.6f; // The distance between both the left and an right motors

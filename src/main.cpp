@@ -4,6 +4,7 @@
 #include "systems/DriveTrain.hpp"
 #include "systems/Intake.hpp"
 #include "systems/MobileClamp.hpp"
+#include "Systems/Wing.hpp"
 //I love you raul
 using namespace pros;
 
@@ -12,6 +13,7 @@ Controller master(E_CONTROLLER_MASTER);
 DriveTrain dt = DriveTrain();
 Intake it = Intake();
 MobileClamp mbc = MobileClamp();
+Wing Wing = Wing();
 
 
 /*
@@ -247,6 +249,7 @@ void opcontrol() {
 	bool prcsM = false;
 	int prcsET = 0;
 	bool clampState = false;
+	bool WingState = false;
 
 	while (true) {
 		// Set precision mode (dont repeat until half a second)
@@ -263,6 +266,11 @@ void opcontrol() {
 		if (master.get_digital_new_press(E_CONTROLLER_DIGITAL_R1)) {
 			clampState = !clampState;
 			mbc.changeClampState(clampState);
+		}
+
+		if (master.get_digital_new_press(E_CONTROLLER_DIGITAL_A)){
+			WingState = !WingState;
+			Wingle.changeClampState(WingState);
 		}
 
 		if (master.get_digital(E_CONTROLLER_DIGITAL_R2)) {

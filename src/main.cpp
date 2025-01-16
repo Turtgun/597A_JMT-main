@@ -270,7 +270,7 @@ void opcontrol() {
 
 		if (master.get_digital_new_press(E_CONTROLLER_DIGITAL_A)){
 			WingState = !WingState;
-			Wingle.changeClampState(WingState);
+			Wing.changeClampState(WingState);
 		}
 
 		if (master.get_digital(E_CONTROLLER_DIGITAL_R2)) {

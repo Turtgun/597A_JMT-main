@@ -7,6 +7,7 @@ using namespace Constants;
 using namespace pros;
 using namespace adi;
 
+
 struct MobileClamp {
     private:
         DigitalOut piston = DigitalOut(hinge_p);

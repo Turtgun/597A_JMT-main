@@ -10,10 +10,69 @@ using namespace Constants;
 using namespace pros;
 using namespace adi;
 
+//New wing will work with motors
+
 
 struct Wing {
     private:
-        DigitalOut piston = DigitalOut(Wing_p);
+        Motor W1_mtr = Motor(W1_p);
+        Motor W2_mtr = Motor(W2_p);
+        
+
+
+        // Motor it2_mtr = Motor(it2_p);
+
+        MotorGroup W_mtrGroup = MotorGroup({W1_p,W2_p});
+        
+    public:
+        Wing() {
+            W_mtrGroup.set_brake_mode(E_MOTOR_BRAKE_HOLD);
+        }
+
+        double TickAverage(){
+            return (W1_mtr.get_position() + W2_mtr.get_position())/2.0;
+        }
+
+
+        void turnAngle(double TurnAngle){
+            double direction = (TurnAngle < 0) ? 1: -1;
+        
+            TurnAngle = std::abs(TurnAngle);
+
+            int ticks = (TurnAngle / 360.0) * WingEncoder_ticks_per_rev;
+
+            //Reseting the position of the left and right group of motors
+            W_mtrGroup.tare_position();
+
+            //Setting the target ticks
+            pidController.setTargetTicks(ticks);
+        
+            while (std::abs(TickAverage <ticks )) {
+                double controlRPM = direction * pidController.compute(std::abs(TickAverage));
+
+                W_mtrGroup.move_velocity(controlRPM);
+
+                delay(20);
+            }
+
+            W_mtrGroup.move_velocity(0);
+        
+            pidController.reset();
+
+            delay(delayMove);
+        }
+
+
+};
+
+/*
+
+OLD WING WHEN WE HAD PISTONS
+
+struct Wing {
+    private:
+        DigitalOut piston1 = DigitalOut(Wing_p1);
+        DigitalOut piston2 = DigitalOut(Wing_p2)
 
     public:
         Wing() {
@@ -21,18 +80,23 @@ struct Wing {
 
 
         void unClamp() {
-            piston.set_value(false);
+            piston1.set_value(false);
+            piston2.set_value(false);
         }
 
 
         void clamp() {
-            piston.set_value(true);
+            piston1.set_value(true);
+            piston2.set_value(true);
         }
 
 
         void changeClampState(bool newState) {
-            piston.set_value(newState);
+            piston1.set_value(newState);
+            piston2.set_value(newState);
         }
 
 
 };
+
+*/

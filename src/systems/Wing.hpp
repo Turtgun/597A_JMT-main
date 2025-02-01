@@ -3,7 +3,9 @@
 
 
 #include "../Constants.hpp"
-#include "../../include/pros/adi.hpp"
+#include "pros/motors.hpp"
+#include "pros/motor_group.hpp"
+#include "../autonomous/PIDController.hpp"
 
 
 using namespace Constants;

@@ -23,7 +23,8 @@ struct Wing {
         // Motor it2_mtr = Motor(it2_p);
 
         MotorGroup W_mtrGroup = MotorGroup({W1_p});
-        PIDController pidController = PIDController(); 
+        PIDController pidController = PIDController(kP, kI, kD); 
+
 
     public:
         Wing() {
@@ -45,7 +46,7 @@ struct Wing {
             //Setting the target ticks
             pidController.setTargetTicks(ticks);
         
-            while (std::abs(W1_mtr.get_position() < ticks)) {
+            while (std::abs(W1_mtr.get_position()) < ticks) {
                 double controlRPM = direction * pidController.compute(std::abs(TickAverage));
 
                 W_mtrGroup.move_velocity(controlRPM);

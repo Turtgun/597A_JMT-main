@@ -45,7 +45,7 @@ struct Wing {
             //Setting the target ticks
             pidController.setTargetTicks(ticks);
         
-            while (std::abs(W1_mtr.get_position() <ticks )) {
+            while (std::abs(W1_mtr.get_position() < ticks)) {
                 double controlRPM = direction * pidController.compute(std::abs(TickAverage));
 
                 W_mtrGroup.move_velocity(controlRPM);

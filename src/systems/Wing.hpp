@@ -12,7 +12,6 @@ using namespace Constants;
 using namespace pros;
 using namespace adi;
 
-using namespace pros;
 
 //New wing will work with motors
 

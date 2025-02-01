@@ -16,7 +16,7 @@ using namespace adi;
 struct Wing {
     private:
         Motor W1_mtr = Motor(W1_p);
-        Motor W2_mtr = Motor(W2_p);
+        //Motor W2_mtr = Motor(W2_p);
         
 
 
@@ -29,9 +29,6 @@ struct Wing {
             W_mtrGroup.set_brake_mode(E_MOTOR_BRAKE_HOLD);
         }
 
-        double TickAverage(){
-            return (W1_mtr.get_position() + W2_mtr.get_position())/2.0;
-        }
 
 
         void turnAngle(double TurnAngle){
@@ -47,7 +44,7 @@ struct Wing {
             //Setting the target ticks
             pidController.setTargetTicks(ticks);
         
-            while (std::abs(TickAverage <ticks )) {
+            while (std::abs(W1_mtr.get_Position() <ticks )) {
                 double controlRPM = direction * pidController.compute(std::abs(TickAverage));
 
                 W_mtrGroup.move_velocity(controlRPM);

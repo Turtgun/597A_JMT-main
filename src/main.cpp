@@ -13,7 +13,7 @@ Controller master(E_CONTROLLER_MASTER);
 DriveTrain dt = DriveTrain();
 Intake it = Intake();
 MobileClamp mbc = MobileClamp();
-Wing Wing = Wing();
+Wing wing = Wing();
 
 
 /*
@@ -272,9 +272,9 @@ void opcontrol() {
 			WingState = !WingState;
 
 			if (WingState){
-				Wing.turnAngle(WingTurnUpAngle);
+				wing.turnAngle(WingTurnUpAngle);
 			}else{
-				Wing.turnAngle(-WingTurnUpAngle);
+				wing.turnAngle(-WingTurnUpAngle);
 			}
 
 			

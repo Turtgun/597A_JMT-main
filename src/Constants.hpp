@@ -14,11 +14,10 @@ namespace Constants {
     static constexpr unsigned char it1_p = 16; // Port of the Elevation mech
     //static constexpr unsigned char it2_p = 15; // Port of the Elevation mech
 
-    static constexpr unsigned char W1_p = 17; // motor wing 1 left
-    static constexpr unsigned char W2_p = 18;// motor wing 2 right
+    static constexpr unsigned char LB_p = 17; // lady brown port 1
 
-    static const int WingEncoder_ticks_per_rev = 900;
-    static const double WingTurnUpAngle = 30;
+    static const int LB_ticks_per_rev = 900;
+    static const double LBTurnUpAngle = 30.0;
 
 
 

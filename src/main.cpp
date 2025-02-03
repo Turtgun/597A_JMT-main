@@ -4,7 +4,7 @@
 #include "systems/DriveTrain.hpp"
 #include "systems/Intake.hpp"
 #include "systems/MobileClamp.hpp"
-#include "Systems/Wing.hpp"
+#include "Systems/LadyBrown.hpp"
 //I love you raul
 using namespace pros;
 
@@ -13,7 +13,7 @@ Controller master(E_CONTROLLER_MASTER);
 DriveTrain dt = DriveTrain();
 Intake it = Intake();
 MobileClamp mbc = MobileClamp();
-Wing wing = Wing();
+LadyBrown LB = LadyBrown();
 
 
 /*
@@ -249,7 +249,7 @@ void opcontrol() {
 	bool prcsM = false;
 	int prcsET = 0;
 	bool clampState = false;
-	bool WingState = false;
+	bool LBState = false;
 
 	while (true) {
 		// Set precision mode (dont repeat until half a second)
@@ -269,12 +269,12 @@ void opcontrol() {
 		}
 
 		if (master.get_digital_new_press(E_CONTROLLER_DIGITAL_A)){
-			WingState = !WingState;
+			LBState = !LBState;
 
-			if (WingState){
-				wing.turnAngle(WingTurnUpAngle);
+			if (LBState){
+				LB.turnAngle(LBTurnUpAngle);
 			}else{
-				wing.turnAngle(-WingTurnUpAngle);
+				LB.turnAngle(-LBTurnUpAngle);
 			}
 
 			

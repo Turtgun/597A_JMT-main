@@ -137,27 +137,8 @@ void autonomous() {
 	//dt.moveHorizontal(-10);
 	*/
 //SKILLS AUTONOMOUS DO NOT TOUCH
-    dt.moveHorizontal(-5);
-	mbc.clamp();
-	dt.turnAngle(-90);
-	it.spinUp();
-	dt.moveHorizontal(12);
-	dt.moveHorizontal(-3);
-	dt.turnAngle(-20);
-	dt.moveHorizontal(5);
-	dt.turnAngle(20);
-	dt.moveHorizontal(8);
-	dt.moveHorizontal(-4);
-	dt.turnAngle(-90);
-	dt.moveHorizontal(12);
-	dt.turnAngle(90);
-	dt.moveHorizontal(12);
-	dt.moveHorizontal(-22);
-	dt.turnAngle(90);
-	dt.moveHorizontal(-22);
-	mbc.unClamp();
-	dt.moveHorizontal(-5);
 
+    dt.moveHorizontal(12);
 	
 
 	/*it.spinUp();

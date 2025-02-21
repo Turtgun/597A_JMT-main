@@ -54,28 +54,38 @@ class DriveTrain {
     //This code is from Darshaan Karthikeyan (597C)
     //Function allows for the forward and backward motion of the drivetrain based on the given inches
     inline void moveHorizontal(double inches){
-        if (fabs(inches) > offsetInches){
-            inches = (inches > 0) ? inches-offsetInches:inches+offsetInches;
-        }
-        int ticksToMove = (inches)/distancePerTick;
+        double direction = (inches > 0) ? 1:-1;
+        inches = std::abs(inches) * 3;
+        inches = (inches > offsetInches) ? inches - offsetInches : inches;
+        int ticks = (inches / distancePerTick) / 2;
 
+        inches -= 2 * inches;
         //Reseting the position of the left and right group of motors
         left_g.tare_position();
         right_g.tare_position();
 
-        left_g.move_relative(ticksToMove, maxRPM);
-        right_g.move_relative(ticksToMove, maxRPM);
+        //Setting the target ticks
+        pidController.setTargetTicks(ticks);
         
-        while (std::abs(left_g.get_position()) <= abs(ticksToMove) && std::abs(right_g.get_position()) <= abs(ticksToMove)) {
-            delay(20); // Prevents busy waiting
+        /*MAJOR CHANGE FOR TESTING --> SWITCHING '&&' TO '||' TO ENSURE BOTH SIDES REACH THE TARGET
+        CHANGED IT BACK TO '&&' - 2/11/2025
+        */
+        while (std::abs(left_g.get_position()) < ticks && std::abs(right_g.get_position()) < ticks) {
+            double controlRPM = direction * pidController.compute(std::abs(left_g.get_position()));
+
+            left_g.move_velocity(controlRPM);
+            right_g.move_velocity(controlRPM);
+
+            delay(20);
         }
 
-        left_g.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-        right_g.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+        left_g.move_velocity(0);
+        right_g.move_velocity(0);
+        
+        pidController.reset();
 
         delay(delayMove);
     }
-
     //Function allows for the angled turned allowing for the drivetrain to turn left or right at any assigned angle
     inline void turnAngle(double angle){
         double direction = (angle < 0) ? 1: -1;

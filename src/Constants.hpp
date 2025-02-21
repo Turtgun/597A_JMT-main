@@ -4,7 +4,7 @@
 #include <cstdint>
 #include <stdint.h>
 namespace Constants {
-    const int8_t fl_p = 11; // Port of Front Left motor
+    static constexpr unsigned char fl_p = 11; // Port of Front Left motor
     static constexpr unsigned char ml_p = 12; // Port of Middle Left motor
     static constexpr unsigned char bl_p = 13; // Port of Back Left motor
     static constexpr unsigned char fr_p = 1; // Port of Front Right motor
@@ -26,9 +26,11 @@ namespace Constants {
 
     //drive train auton values---------------
     static const float trackwidth = 14.18f;
-    static const float kP = 0.5;
-    static const float kI = 0.5;
-    static const float kD  = 0.5;
+    static const double kP = 0.128;
+    static const double kI = 0.0399;
+    static const double kD = 0.129;
+    static const double integral_threshold = 10;
+
     static const float radius = trackwidth; // can be found by measuring the width of the drive train and then dividing by two
     
     //Darshaan's Code (597C)
@@ -38,14 +40,13 @@ namespace Constants {
     static const double wheelCircumference = 3.25 * pi;
     static const double distancePerTick = wheelCircumference/(encoder_ticks_per_rev*gearRatio);
     /// @brief 
-    static const int maxRPM = 100;
+    static const int maxRPM = 1800;
     static const int maxVolt = 127;
     static const int delayMove = 20;
     static const int offsetInches = 11;
     //-------------------------------
 
 
-    static const double integral_threshold = 10;
 
     /*
     1800 ticks/rev with 36:1 gears (BLUE)

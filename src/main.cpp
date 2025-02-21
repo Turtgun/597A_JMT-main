@@ -138,8 +138,43 @@ void autonomous() {
 	*/
 //SKILLS AUTONOMOUS DO NOT TOUCH
 
-    dt.moveHorizontal(12);
-	
+mbc.clamp();
+dt.moveHorizontal(-8);
+mbc.unClamp();
+pros::delay(500);
+dt.turnAngle(-140);
+it.spinUp();
+dt.moveHorizontal(-18);
+it.stop();
+mbc.clamp();
+
+
+/*
+dt.moveHorizontal(27.5);
+dt.turnAngle(45);
+dt.turnAngle(180);
+dt.moveHorizontal(-24 * 3);
+it.clamp();
+delay(250);
+dt.moveHorizontal(-24);
+dt.turnAngle(45);
+dt.moveHorizontal(-26);
+dt.unClamp();
+delay(250);
+
+dt.turnAngle(12);//so i dont hit poll in the middle
+dt.moveHorizontal(24 * 5);
+dt.turnAngle(146);
+dt.moveHorizontal(-24 + 5;
+mbc.clamp();
+delay(250);
+it.turnAngle(45);
+dt.moveHorizontal(24 * 1.5);
+dt.turnAngle(135);
+dt.moveHorizontal(-27.5 * 2);
+mbc.unClamp();
+delay(250);
+*/
 
 	/*it.spinUp();
 	it.autonSpin(maxVolt, 4000); //duration is in milliseconds

@@ -147,16 +147,26 @@ void autonomous() {
 	//24 inches
 	//NEW SKILLS AUTONOMUS
 	mbc.clamp(); // unclaamps
-dt.moveHorizontal(-24.0);
-dt.turnAngle(-90.0);
-dt.moveHorizontal(-24.0 + 2.0);
+//dt.moveHorizontal(-24.0 + 7.0 );
+//dt.turnAngle(-90.0);
+dt.moveHorizontal(-3.0);
+
+delay(200)
+
 mbc.unClamp(); // this clamps the robot
 mbc.unClamp();
-dt.moveHorizontal(-24.0 - 2.0);
+
+dt.moveHorizontal(-3.0);
+
+
+dt.turnAngle(-90);
+
+dt.moveHorizontal(-24.0);
 dt.turnAngle(-45.0);
 dt.moveHorizontal((1.414 * -24.0) / 2.0);
 mbc.clamp(); // unclamps
 
+/*
 dt.moveHorizontal((1.414 * 24.0) / 2.0);
 dt.turnAngle(-135.0);
 dt.moveHorizontal(3.0 * -24.0 + 2.0);
@@ -194,7 +204,7 @@ mbc.clamp(); // unclamps
 
 
 
-
+*/
 
 	
 

@@ -126,9 +126,9 @@ void debugWait() {
 
 void autonomous() {
 	//left
-	
+	/*
 	mbc.clamp(); // clamp and unclamp and reversed. clamp unclamps. unclamp clamps.
-	dt.moveHorizontalNewTest(-24.5,70); 
+	dt.moveHorizontal(-24.5,70); 
 	mbc.unClamp();
 	mbc.unClamp();
 	//LB.turnAngle(200);
@@ -142,54 +142,56 @@ void autonomous() {
 	dt.turnAngle(-185);
 	dt.moveHorizontal(20);
 	//dt.moveHorizontal(-10);
+	*/
 
 	//24 inches
 	//NEW SKILLS AUTONOMUS
-	mbc.clamp();// unclaamps
-	dt.moveHorizontalNewTest(-24);
-	dt.turnAngle(-90);
-	dt.moveHorizontalNewTest(-24 + 2);
-	mbc.unClamp();// this clamps the robot
-	mbc.unClamp();
-	dt.moveHorizontalNewTest(-24 - 2);
-	dt.turnAngle(-45);
-	dt.moveHorizontalNewTest((1.414 * -24)/2);
-	mbc.clamp();// unclamps
+	mbc.clamp(); // unclaamps
+dt.moveHorizontal(-24.0);
+dt.turnAngle(-90.0);
+dt.moveHorizontal(-24.0 + 2.0);
+mbc.unClamp(); // this clamps the robot
+mbc.unClamp();
+dt.moveHorizontal(-24.0 - 2.0);
+dt.turnAngle(-45.0);
+dt.moveHorizontal((1.414 * -24.0) / 2.0);
+mbc.clamp(); // unclamps
 
-	dt.moveHorizontalNewTest((1.414 * 24)/2);
-	dt.turnAngle(-135);
-	dt.moveHorizontalNewTest(3 * -24 + 2);
-	mbc.unClamp();// clamps down
-	mbc.unClamp(); // clamps down harder
-	dt.moveHorizontalNewTest(-(24 + 2));
-	dt.turnAngle(45);
-	dt.moveHorizontalNewTest((1.4141 * -24)/2);
-	mbc.clamp();// unclamps
+dt.moveHorizontal((1.414 * 24.0) / 2.0);
+dt.turnAngle(-135.0);
+dt.moveHorizontal(3.0 * -24.0 + 2.0);
+mbc.unClamp(); // clamps down
+mbc.unClamp(); // clamps down harder
+dt.moveHorizontal(-(24.0 + 2.0));
+dt.turnAngle(45.0);
+dt.moveHorizontal((1.4141 * -24.0) / 2.0);
+mbc.clamp(); // unclamps
 
-	dt.moveHorizontalNewTest((1.4141 * 24)/2);
-	dt.turnAngle(45);
-	dt.moveHorizontalNewTest(4 * 24);
-	dt.turnAngle(90);
-	dt.moveHorizontalNewTest((-24 * 2) + 2);
-	mbc.unClamp();// clamps onto goal
-	mbc.unClamp();// clamps extra hard
-	dt.moveHorizontalNewTest((24 * 2) + 2);
-	dt.turnAngle(135);
-	dt.moveHorizontalNewTest((1.4141 * -24)/2)
-	mbc.clamp();// unclamps the mobile goal
+dt.moveHorizontal((1.4141 * 24.0) / 2.0);
+dt.turnAngle(45.0);
+dt.moveHorizontal(4.0 * 24.0);
+dt.turnAngle(90.0);
+dt.moveHorizontal((-24.0 * 2.0) + 2.0);
+mbc.unClamp(); // clamps onto goal
+mbc.unClamp(); // clamps extra hard
+dt.moveHorizontal((24.0 * 2.0) + 2.0);
+dt.turnAngle(135.0);
+dt.moveHorizontal((1.4141 * -24.0) / 2.0);
+mbc.clamp(); // unclamps the mobile goal
 
-	dt.moveHorizontalNewTest((1.4141 * 24)/2);
-	dt.turnAngle(45);
-	dt.moveHorizontalNewTest(3 * 24);
-	dt.turnAngle(-90);
-	dt.moveHorizontalNewTest(-5);
-	mbc.unClamp(); // clamps down
-	dt.moveHorizontalNewTest(5);
-	dt.turnAngle(-90);
-	dt.moveHorizontalNewTest(-24);
-	dt.turnAngle(45);
-	dt.moveHorizontalNewTest((1.414 * -24)/2);
-	mbc.clamp(); // unclamps 
+dt.moveHorizontal((1.4141 * 24.0) / 2.0);
+dt.turnAngle(45.0);
+dt.moveHorizontal(3.0 * 24.0);
+dt.turnAngle(-90.0);
+dt.moveHorizontal(-5.0);
+mbc.unClamp(); // clamps down
+dt.moveHorizontal(5.0);
+dt.turnAngle(-90.0);
+dt.moveHorizontal(-24.0);
+dt.turnAngle(45.0);
+dt.moveHorizontal((1.414 * -24.0) / 2.0);
+mbc.clamp(); // unclamps
+
 
 
 

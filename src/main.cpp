@@ -4,8 +4,8 @@
 #include "systems/DriveTrain.hpp"
 #include "systems/Intake.hpp"
 #include "systems/MobileClamp.hpp"
-#include "Systems/LadyBrown.hpp"
-//test from tyrese
+#include "systems/LadyBrown.hpp"
+//I love you raul
 using namespace pros;
 
 
@@ -125,10 +125,15 @@ void debugWait() {
 }
 
 void autonomous() {
-	/*dt.moveHorizontalNewTest(-24.5,70); 
-	mbc.clamp();
-	mbc.clamp();
+	//left
+	
+	mbc.clamp(); // clamp and unclamp and reversed. clamp unclamps. unclamp clamps.
+	dt.moveHorizontalNewTest(-24.5,70); 
+	mbc.unClamp();
+	mbc.unClamp();
+	//LB.turnAngle(200);
 	delay(1500);
+	
 	it.spinUp();
 	dt.turnAngle(90);
 	dt.moveHorizontal(22);
@@ -137,8 +142,65 @@ void autonomous() {
 	dt.turnAngle(-185);
 	dt.moveHorizontal(20);
 	//dt.moveHorizontal(-10);
-	*/
+
+	//24 inches
+	//NEW SKILLS AUTONOMUS
+	mbc.clamp();// unclaamps
+	dt.moveHorizontalNewTest(-24);
+	dt.turnAngle(-90);
+	dt.moveHorizontalNewTest(-24 + 2);
+	mbc.unClamp();// this clamps the robot
+	mbc.unClamp();
+	dt.moveHorizontalNewTest(-24 - 2);
+	dt.turnAngle(-45);
+	dt.moveHorizontalNewTest((1.414 * -24)/2);
+	mbc.clamp();// unclamps
+
+	dt.moveHorizontalNewTest((1.414 * 24)/2);
+	dt.turnAngle(-135);
+	dt.moveHorizontalNewTest(3 * -24 + 2);
+	mbc.unClamp();// clamps down
+	mbc.unClamp(); // clamps down harder
+	dt.moveHorizontalNewTest(-(24 + 2));
+	dt.turnAngle(45);
+	dt.moveHorizontalNewTest((1.4141 * -24)/2);
+	mbc.clamp();// unclamps
+
+	dt.moveHorizontalNewTest((1.4141 * 24)/2);
+	dt.turnAngle(45);
+	dt.moveHorizontalNewTest(4 * 24);
+	dt.turnAngle(90);
+	dt.moveHorizontalNewTest((-24 * 2) + 2);
+	mbc.unClamp();// clamps onto goal
+	mbc.unClamp();// clamps extra hard
+	dt.moveHorizontalNewTest((24 * 2) + 2);
+	dt.turnAngle(135);
+	dt.moveHorizontalNewTest((1.4141 * -24)/2)
+	mbc.clamp();// unclamps the mobile goal
+
+	dt.moveHorizontalNewTest((1.4141 * 24)/2);
+	dt.turnAngle(45);
+	dt.moveHorizontalNewTest(3 * 24);
+	dt.turnAngle(-90);
+	dt.moveHorizontalNewTest(-5);
+	mbc.unClamp(); // clamps down
+	dt.moveHorizontalNewTest(5);
+	dt.turnAngle(-90);
+	dt.moveHorizontalNewTest(-24);
+	dt.turnAngle(45);
+	dt.moveHorizontalNewTest((1.414 * -24)/2);
+	mbc.clamp(); // unclamps 
+
+
+
+
+	
+
+
+	
+
 //SKILLS AUTONOMOUS DO NOT TOUCH
+	/*
     dt.moveHorizontal(-5);
 	mbc.clamp();
 	dt.turnAngle(-90);

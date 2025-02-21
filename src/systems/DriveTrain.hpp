@@ -1,6 +1,7 @@
 #pragma once
 
-#include "../Constants.hpp"
+#include "../Systems/Constants.hpp"
+
 #include "pros/motors.hpp"
 #include "pros/motor_group.hpp"
 #include "../autonomous/PIDController.hpp"

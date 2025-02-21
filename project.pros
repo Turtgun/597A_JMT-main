@@ -1,7 +1,11 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
+<<<<<<< HEAD
     "project_name": "597A Skills",
+=======
+    "project_name": "597A ex",
+>>>>>>> 0d398f7 (fix from tyrese)
     "target": "v5",
     "templates": {
       "kernel": {
@@ -255,8 +259,13 @@
       }
     },
     "upload_options": {
+<<<<<<< HEAD
       "slot": 3,
       "icon": "power"
+=======
+      "slot": 1,
+      "icon": "pros"
+>>>>>>> 0d398f7 (fix from tyrese)
     },
     "use_early_access": false
   }
